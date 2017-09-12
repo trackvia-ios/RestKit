@@ -53,6 +53,7 @@ static BOOL RKIsManagedObjectContextDescendentOfContext(NSManagedObjectContext *
 static NSSet *RKSetOfManagedObjectIDsFromManagedObjectContextDidSaveNotification(NSNotification *notification)
 {
     // Fix for object ID not able to merge during save
+    // Reference: https://github.com/RestKit/RestKit/pull/2449/files
     NSMutableSet <NSManagedObjectID *> *objectIDs = [NSMutableSet set];
     
     void (^unionObjectIDs)(NSMutableSet *, NSSet *) = ^(NSMutableSet *objectIDs, NSSet *objects) {
